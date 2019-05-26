@@ -1,0 +1,66 @@
+﻿//Login form
+
+<div class="login">
+	<?php 
+		session_start();
+		if(!isset($_SESSION["userActive"])){
+			echo '<form action="loginProc.php" method="post">'; //Formulario para el ingreso de cuentas
+				echo 'Username:<br>';
+				echo '<input type="text" name="user"><br>';
+				echo 'Password:<br>';
+				echo '<input type="password" name="pass"><br>';
+				echo '<input type="submit" class="send" value="Enter">';
+				echo '<form><input type="submit" class="register" value="Register"></form>'; //Formulario para el registro de cuentas
+			echo '</form>';
+			echo '<a href="#">Forgot your password?</a>'; //Reseteo de contraseña
+		}else{
+			echo ''.$_SESSION["userActive"].' is inside';
+			echo '<form action="signOff.php" method="post">';
+				echo '<input type="submit" class="" value="Sign off">';
+			echo '</form>';
+		}
+	?>			
+</div>
+
+
+//CSS login
+
+div.login{
+	font-size: 12px;
+	font-family: Arial;
+	float: right; /*Apegado a la derecha*/
+	margin: 8px;
+	margin-right: 15px;
+}
+div.login a{	
+	font-size: 11px;
+	text-decoration:none
+}
+div.login input.send{
+	margin-top: 4px;
+	font-size:11px
+}
+div.login input.register{
+	margin-top: 4px;
+	margin-left:57px;
+	font-size:11px
+}
+
+
+//CSS login page
+
+div.loginPage{
+	position: relative;
+	background-color: #ffffff;
+	font-family: Arial;
+	width: 50%;
+	height: auto;
+	margin: 40px;
+	margin-left: auto;
+	margin-right:auto;
+	padding: 20px;
+	text-align:center;
+}
+p.titleLoginPage{
+	font-size:20px;
+}
